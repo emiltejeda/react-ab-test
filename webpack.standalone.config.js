@@ -16,7 +16,7 @@ module.exports = {
         loader: 'babel',
         query: {
           cacheDirectory: true,
-          presets: ["stage-1", "es2015", "react"],
+          presets: ["react-native"],
           plugins: ["add-module-exports"]
         }
       }, {
@@ -53,7 +53,6 @@ module.exports = {
     ]
   },
   externals: {
-    react: 'React',
-    'react-dom': "ReactDOM"
+    react: 'React'
   }
 };

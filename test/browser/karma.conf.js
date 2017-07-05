@@ -29,49 +29,49 @@ module.exports = function (karma) {
         os: 'Windows',
         os_version: '7',
         browser: 'ie',
-        browser_version : '9.0'
+        browser_version: '9.0'
       },
       bs_windows_7_ie_10: {
         base: 'BrowserStack',
         os: 'Windows',
         os_version: '7',
         browser: 'ie',
-        browser_version : '10.0'
+        browser_version: '10.0'
       },
       bs_windows_7_ie_11: {
         base: 'BrowserStack',
         os: 'Windows',
         os_version: '7',
         browser: 'ie',
-        browser_version : '11.0'
+        browser_version: '11.0'
       },
       bs_windows_7_opera_latest: {
         base: 'BrowserStack',
         os: 'Windows',
         os_version: '7',
         browser: 'opera',
-        browser_version : 'latest'
+        browser_version: 'latest'
       },
       bs_windows_7_firefox_latest: {
         base: 'BrowserStack',
         os: 'Windows',
         os_version: '7',
         browser: 'firefox',
-        browser_version : 'latest'
+        browser_version: 'latest'
       },
       bs_windows_7_chrome_latest: {
         base: 'BrowserStack',
         os: 'Windows',
         os_version: '7',
         browser: 'chrome',
-        browser_version : 'latest'
+        browser_version: 'latest'
       },
       bs_osx_yosemite_safari: {
         base: 'BrowserStack',
         os: 'OS X',
         os_version: 'Yosemite',
         browser: 'safari',
-        browser_version : 'latest'
+        browser_version: 'latest'
       },
       bs_android_5_default: {
         base: 'BrowserStack',
@@ -109,7 +109,7 @@ module.exports = function (karma) {
             loader: 'babel',
             query: {
               cacheDirectory: true,
-              presets: ["stage-1", "es2015", "react"]
+              presets: ["react-native"]
             }
           }, {
             exclude: /(node_modules|lib|example)/,
@@ -129,19 +129,19 @@ module.exports = function (karma) {
       noInfo: true,
     }
   };
-  if(process.env.BROWSERSTACK_USERNAME && process.env.BROWSERSTACK_ACCESS_KEY) {
+  if (process.env.BROWSERSTACK_USERNAME && process.env.BROWSERSTACK_ACCESS_KEY) {
     options.browserStack = {
       username: process.env.BROWSERSTACK_USERNAME,
       accessKey: process.env.BROWSERSTACK_ACCESS_KEY,
       pollingTimeout: 10000
     };
-    options.browsers = Object.keys(options.customLaunchers).filter(function(key){
+    options.browsers = Object.keys(options.customLaunchers).filter(function (key) {
       return key.indexOf("bs_") !== -1;
     });
   } else {
     options.browsers = ['Chrome'];
   }
-  if(process.env.COVERALLS_REPO_TOKEN) {
+  if (process.env.COVERALLS_REPO_TOKEN) {
     options.reporters.push('coveralls');
   }
   karma.set(options);

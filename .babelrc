@@ -1,4 +1,8 @@
 {
-  "presets": ["stage-1", "es2015", "react"],
-  "plugins": ["transform-class-properties"]
+  "presets": [
+    "react-native"
+  ],
+  "plugins": [
+    "transform-class-properties"
+  ]
 }
